@@ -49,7 +49,7 @@
       "priceCurrency": "JPY",
       "availability": "https://schema.org/InStock"
     },
-    "numberOfRooms": 9,
+    "numberOfRooms": 6,
     "checkinTime": "15:00",
     "checkoutTime": "11:00"
   }
@@ -299,12 +299,18 @@ img { max-width: 100%; display: block; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.45) 0%,
-    rgba(0, 0, 0, 0.25) 50%,
-    rgba(0, 0, 0, 0.55) 100%
-  );
+  /* 中央のコピー背後にスクリムを敷いて可読性を確保（従来は50%地点が0.25で写真に負けていた） */
+  background:
+    radial-gradient(ellipse 72% 58% at 50% 48%,
+      rgba(0, 0, 0, 0.52) 0%,
+      rgba(0, 0, 0, 0.22) 68%,
+      rgba(0, 0, 0, 0) 100%),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0.30) 50%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
 }
 .hero-content {
   position: relative;
@@ -316,9 +322,9 @@ img { max-width: 100%; display: block; }
   font-family: var(--display);
   font-size: 13px;
   letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.78);
   margin-bottom: 20px;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.55);
 }
 .hero-title {
   font-family: var(--serif);
@@ -327,15 +333,18 @@ img { max-width: 100%; display: block; }
   color: var(--white);
   line-height: 1.4;
   margin-bottom: 16px;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 .hero-subtitle {
-  font-family: var(--serif);
-  font-size: 20px;
+  font-family: var(--sans);
+  font-size: 16px;
   font-weight: 400;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 40px;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.92);
+  max-width: 34em;
+  margin: 0 auto 40px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.55);
 }
 .hero-cta {
   display: flex;
@@ -373,7 +382,7 @@ img { max-width: 100%; display: block; }
    CONCEPT
    ======================================== */
 .concept { background: var(--bg); }
-.concept-lead-body { max-width: 680px; margin: 0 auto 40px; }
+.concept-lead-body { max-width: 680px; margin: 0 auto 40px; text-align: left; }
 .concept-lead-body p { font-size: 15px; line-height: 2; color: var(--text); margin-bottom: 16px; }
 .concept-lead-body p:last-child { margin-bottom: 0; }
 .concept-lead-body strong { color: var(--ink); font-weight: 600; }
@@ -546,7 +555,8 @@ img { max-width: 100%; display: block; }
 .rooms-grid {
   display: grid;
   /* auto-fit + 上限幅：1〜3枚のどのカテゴリでもカードが伸びきらず中央に揃う */
-  grid-template-columns: repeat(auto-fit, minmax(260px, 342px));
+  /* 3列 × 336px + gap48px = 1056px ≤ コンテナ内寸1072px（342pxだと2pxはみ出して2列に落ちる） */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 336px));
   justify-content: center;
   gap: 24px;
   margin-bottom: 40px;
@@ -627,6 +637,23 @@ img { max-width: 100%; display: block; }
   transform: translateY(-1px);
   color: var(--white);
 }
+.room-type-tag {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--warm);
+  background: var(--warm-light);
+  border-radius: 999px;
+  align-self: flex-start;
+}
+/* カードの高さが揃わないと予約ボタンの位置がばらつくため、下端で揃える */
+.room-card { display: flex; flex-direction: column; border: 1px solid #ece7de; }
+.room-info { display: flex; flex-direction: column; flex: 1; }
+.room-info p { margin-bottom: 12px; }
+.room-info > .room-book-btn { margin-top: auto; align-self: flex-start; }
 .rooms-cta { text-align: center; }
 .room-card--inquiry {
   background: #f4f1ec;
@@ -1249,7 +1276,8 @@ img { max-width: 100%; display: block; }
   /* Rooms */
   .rooms-stats { gap: 24px; }
   .stat-num { font-size: 28px; }
-  .rooms-grid { grid-template-columns: 1fr; }
+  /* 768px以下でも2枚並ぶ幅があれば2列を保つ（1列だと横長すぎるカードになる） */
+  .rooms-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 
   /* Reviews */
   .review-badges { flex-direction: column; align-items: center; }
@@ -1489,7 +1517,7 @@ img { max-width: 100%; display: block; }
           <div class="comfort-points">
             <div class="comfort-point">
               <span class="comfort-icon">&#128207;</span>
-              <span data-ja="24〜60m²の居住空間" data-en="24–60m² living space" data-zh="24〜60m²居住空间" data-ko="24~60m² 거주 공간">24〜60m²の居住空間</span>
+              <span data-ja="27〜63m²の居住空間" data-en="27–63m² living space" data-zh="27〜63m²居住空间" data-ko="27~63m² 거주 공간">27〜63m²の居住空間</span>
               <small data-ja="都心ホテルの約2〜3倍" data-en="2–3x larger than city hotels" data-zh="市中心酒店的2〜3倍" data-ko="도심 호텔의 약 2~3배">都心ホテルの約2〜3倍</small>
             </div>
             <div class="comfort-point">
@@ -1556,13 +1584,16 @@ img { max-width: 100%; display: block; }
                    M001=247506 M005=247508 M012=247509 M015=247510 M026=247511
                    M057=247512 M019=247513 M049=247514 M056=247515
              評価値は 2026-06 のライブ取得値。M015/M049/M056/M057 はレビュー件数が未取得のため評価のみ表示 -->
-        <h3 class="room-category-label fade-in" data-ja="カップル・おふたりに — ダブルベッド" data-en="For Couples — Double Bed" data-zh="情侣·两人入住 — 双人床" data-ko="커플·두 분께 — 더블베드">カップル・おふたりに — ダブルベッド</h3>
+        <!-- 2026-09-03 レイアウト改訂：カテゴリ別に分かれていた4グリッド（2+2+1+1）を
+             1つの3列グリッドに統合。カテゴリは各カードのタグへ移した。
+             従来は1枚だけのグリッドが2つあり、M056・M001が広い余白に取り残されていた -->
         <div class="rooms-grid">
           <div class="room-card fade-in" id="room-m057">
             <div class="room-img">
               <img src="img/room-m057.jpg" alt="M057 室内" width="720" height="480" loading="lazy">
             </div>
             <div class="room-info">
+              <span class="room-type-tag" data-ja="おふたりに" data-en="For couples" data-zh="情侣·两人" data-ko="두 분께">おふたりに</span>
               <h3>1DK / M057</h3>
               <div class="room-rating">&#9733; 4.74</div>
               <p data-ja="ダブルベッド / 1階・段差なし / 最大4名" data-en="Double bed / Ground floor, no stairs / Up to 4" data-zh="双人床 / 一楼无台阶 / 最多4人" data-ko="더블베드 / 1층·계단 없음 / 최대 4명">ダブルベッド / 1階・段差なし / 最大4名</p>
@@ -1574,6 +1605,7 @@ img { max-width: 100%; display: block; }
               <img src="img/room-m015.jpg" alt="M015 室内" width="720" height="480" loading="lazy">
             </div>
             <div class="room-info">
+              <span class="room-type-tag" data-ja="おふたりに" data-en="For couples" data-zh="情侣·两人" data-ko="두 분께">おふたりに</span>
               <h3>1DK / M015</h3>
               <div class="room-rating">&#9733; 4.69</div>
               <!-- 302は2026/9/1にセミダブル2台→ダブル1台へ変更。変更完了後は「（2026/9/1より）」を削除し、写真も差し替える -->
@@ -1581,15 +1613,12 @@ img { max-width: 100%; display: block; }
               <a href="https://beds24.com/booking2.php?propid=247510" target="_blank" rel="noopener" class="room-book-btn" data-ja="この部屋を予約" data-en="Book this room" data-zh="预订此房" data-ko="이 방 예약">この部屋を予約</a>
             </div>
           </div>
-        </div>
-
-        <h3 class="room-category-label fade-in" data-ja="カップル・ファミリー どちらでも" data-en="For Couples &amp; Families Alike" data-zh="情侣·家庭皆宜" data-ko="커플·가족 모두에게">カップル・ファミリー どちらでも</h3>
-        <div class="rooms-grid">
           <div class="room-card fade-in" id="room-m026">
             <div class="room-img">
               <img src="img/room-m026.jpg" alt="M026 室内" width="720" height="480" loading="lazy">
             </div>
             <div class="room-info">
+              <span class="room-type-tag" data-ja="カップル・ファミリー" data-en="Couples & families" data-zh="情侣·家庭" data-ko="커플·가족">カップル・ファミリー</span>
               <h3>1DK / M026</h3>
               <div class="room-rating">&#9733; 4.66 <span>(181 <span data-ja="件" data-en="reviews" data-zh="条" data-ko="건">件</span>)</span></div>
               <p data-ja="青基調で広め / カップル・ファミリー / 最大5名" data-en="Bright blue, roomier 1DK / Couples &amp; families / Up to 5" data-zh="蓝调宽敞 / 情侣·家庭 / 最多5人" data-ko="블루 톤·넉넉 / 커플·가족 / 최대 5명">青基調で広め / カップル・ファミリー / 最大5名</p>
@@ -1601,36 +1630,31 @@ img { max-width: 100%; display: block; }
               <img src="img/room-m049.jpg" alt="M049 室内" width="720" height="480" loading="lazy">
             </div>
             <div class="room-info">
+              <span class="room-type-tag" data-ja="カップル・ファミリー" data-en="Couples & families" data-zh="情侣·家庭" data-ko="커플·가족">カップル・ファミリー</span>
               <h3>1DK / M049</h3>
               <div class="room-rating">&#9733; 4.70</div>
               <p data-ja="落ち着いた淡色 / カップル・ファミリー / 最大4名" data-en="Calm, soft tones / Couples &amp; families / Up to 4" data-zh="柔和沉静 / 情侣·家庭 / 最多4人" data-ko="은은하고 차분 / 커플·가족 / 최대 4명">落ち着いた淡色 / カップル・ファミリー / 最大4名</p>
               <a href="https://beds24.com/booking2.php?propid=247514" target="_blank" rel="noopener" class="room-book-btn" data-ja="この部屋を予約" data-en="Book this room" data-zh="预订此房" data-ko="이 방 예약">この部屋を予約</a>
             </div>
           </div>
-        </div>
-
-        <h3 class="room-category-label fade-in" data-ja="長期滞在に — 割引あり" data-en="For Long Stays — Discount Available" data-zh="长期居住 — 提供优惠" data-ko="장기 체류 — 할인 제공">長期滞在に — 割引あり</h3>
-        <div class="rooms-grid">
           <div class="room-card fade-in" id="room-m056">
             <div class="room-img">
               <img src="img/room-m056.jpg" alt="M056 室内" width="720" height="480" loading="lazy">
             </div>
             <div class="room-info">
+              <span class="room-type-tag" data-ja="長期滞在・割引あり" data-en="Long stay · discount" data-zh="长住优惠" data-ko="장기 체류·할인">長期滞在・割引あり</span>
               <h3>1DK / M056</h3>
               <div class="room-rating">&#9733; 4.65</div>
               <p data-ja="長期割引あり / 仕事スペース / 最大5名" data-en="Long-stay discount / Work space / Up to 5" data-zh="长住优惠 / 办公空间 / 最多5人" data-ko="장기 할인 / 업무 공간 / 최대 5명">長期割引あり / 仕事スペース / 最大5名</p>
               <a href="https://beds24.com/booking2.php?propid=247515" target="_blank" rel="noopener" class="room-book-btn" data-ja="この部屋を予約" data-en="Book this room" data-zh="预订此房" data-ko="이 방 예약">この部屋を予約</a>
             </div>
           </div>
-        </div>
-
-        <h3 class="room-category-label fade-in" data-ja="ファミリー・グループに — 1LDK" data-en="For Families &amp; Groups — 1LDK" data-zh="家庭·团体 — 1LDK" data-ko="가족·그룹 — 1LDK">ファミリー・グループに — 1LDK</h3>
-        <div class="rooms-grid">
           <div class="room-card fade-in" id="room-m001">
             <div class="room-img">
               <img src="img/room-m001.jpg" alt="M001 室内" width="720" height="480" loading="lazy">
             </div>
             <div class="room-info">
+              <span class="room-type-tag" data-ja="ファミリー・グループ" data-en="Families & groups" data-zh="家庭·团体" data-ko="가족·그룹">ファミリー・グループ</span>
               <h3>1LDK / M001</h3>
               <div class="room-rating">&#9733; 4.74 <span>(232 <span data-ja="件" data-en="reviews" data-zh="条" data-ko="건">件</span>)</span></div>
               <p data-ja="最大8名 / 広々1LDK・グループ向け" data-en="Up to 8 / Spacious 1LDK for groups" data-zh="最多8人 / 宽敞1LDK·团体首选" data-ko="최대 8명 / 넓은 1LDK·단체 추천">最大8名 / 広々1LDK・グループ向け</p>
@@ -1638,6 +1662,7 @@ img { max-width: 100%; display: block; }
             </div>
           </div>
         </div>
+
         <div class="rooms-cta">
           <a href="https://beds24.com/booking2.php?ownerid=129386" target="_blank" rel="noopener" class="btn btn-primary" data-ja="すべての部屋の空室を確認" data-en="Check All Room Availability" data-zh="查看所有房间空房" data-ko="전체 빈방 확인">すべての部屋の空室を確認</a>
         </div>
@@ -2213,7 +2238,7 @@ img { max-width: 100%; display: block; }
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
 
     fadeEls.forEach(function (el) {
       observer.observe(el);
