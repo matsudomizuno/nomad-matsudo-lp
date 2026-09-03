@@ -1586,8 +1586,22 @@ img { max-width: 100%; display: block; }
              評価値は 2026-06 のライブ取得値。M015/M049/M056/M057 はレビュー件数が未取得のため評価のみ表示 -->
         <!-- 2026-09-03 レイアウト改訂：カテゴリ別に分かれていた4グリッド（2+2+1+1）を
              1つの3列グリッドに統合。カテゴリは各カードのタグへ移した。
-             従来は1枚だけのグリッドが2つあり、M056・M001が広い余白に取り残されていた -->
+             従来は1枚だけのグリッドが2つあり、M056・M001が広い余白に取り残されていた
+             2026-09-03 並び順：M001（1LDK・最大8名・★4.74/232件）を先頭へ。
+             単価と評価件数が最も大きい部屋が最後尾に埋もれていたため -->
         <div class="rooms-grid">
+          <div class="room-card fade-in" id="room-m001">
+            <div class="room-img">
+              <img src="img/room-m001.jpg" alt="M001 室内" width="720" height="480" loading="lazy">
+            </div>
+            <div class="room-info">
+              <span class="room-type-tag" data-ja="ファミリー・グループ" data-en="Families & groups" data-zh="家庭·团体" data-ko="가족·그룹">ファミリー・グループ</span>
+              <h3>1LDK / M001</h3>
+              <div class="room-rating">&#9733; 4.74 <span>(232 <span data-ja="件" data-en="reviews" data-zh="条" data-ko="건">件</span>)</span></div>
+              <p data-ja="最大8名 / 広々1LDK・グループ向け" data-en="Up to 8 / Spacious 1LDK for groups" data-zh="最多8人 / 宽敞1LDK·团体首选" data-ko="최대 8명 / 넓은 1LDK·단체 추천">最大8名 / 広々1LDK・グループ向け</p>
+              <a href="https://beds24.com/booking2.php?propid=247506" target="_blank" rel="noopener" class="room-book-btn" data-ja="この部屋を予約" data-en="Book this room" data-zh="预订此房" data-ko="이 방 예약">この部屋を予約</a>
+            </div>
+          </div>
           <div class="room-card fade-in" id="room-m057">
             <div class="room-img">
               <img src="img/room-m057.jpg" alt="M057 室内" width="720" height="480" loading="lazy">
@@ -1647,18 +1661,6 @@ img { max-width: 100%; display: block; }
               <div class="room-rating">&#9733; 4.65</div>
               <p data-ja="長期割引あり / 仕事スペース / 最大5名" data-en="Long-stay discount / Work space / Up to 5" data-zh="长住优惠 / 办公空间 / 最多5人" data-ko="장기 할인 / 업무 공간 / 최대 5명">長期割引あり / 仕事スペース / 最大5名</p>
               <a href="https://beds24.com/booking2.php?propid=247515" target="_blank" rel="noopener" class="room-book-btn" data-ja="この部屋を予約" data-en="Book this room" data-zh="预订此房" data-ko="이 방 예약">この部屋を予約</a>
-            </div>
-          </div>
-          <div class="room-card fade-in" id="room-m001">
-            <div class="room-img">
-              <img src="img/room-m001.jpg" alt="M001 室内" width="720" height="480" loading="lazy">
-            </div>
-            <div class="room-info">
-              <span class="room-type-tag" data-ja="ファミリー・グループ" data-en="Families & groups" data-zh="家庭·团体" data-ko="가족·그룹">ファミリー・グループ</span>
-              <h3>1LDK / M001</h3>
-              <div class="room-rating">&#9733; 4.74 <span>(232 <span data-ja="件" data-en="reviews" data-zh="条" data-ko="건">件</span>)</span></div>
-              <p data-ja="最大8名 / 広々1LDK・グループ向け" data-en="Up to 8 / Spacious 1LDK for groups" data-zh="最多8人 / 宽敞1LDK·团体首选" data-ko="최대 8명 / 넓은 1LDK·단체 추천">最大8名 / 広々1LDK・グループ向け</p>
-              <a href="https://beds24.com/booking2.php?propid=247506" target="_blank" rel="noopener" class="room-book-btn" data-ja="この部屋を予約" data-en="Book this room" data-zh="预订此房" data-ko="이 방 예약">この部屋を予約</a>
             </div>
           </div>
         </div>
