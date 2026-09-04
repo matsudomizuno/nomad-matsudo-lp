@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NOMAD松戸宿 テイクファイブ 宿泊者向けエリアガイド。交通・病院・避難場所・駐車場・コインランドリー・買い物・おすすめを地図リンク付きでご案内。">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="松戸エリアガイド ｜ NOMAD松戸宿 テイクファイブ">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1F4E79">
+<title>松戸エリアガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ground:#f6f4ef; --card:#ffffff; --ink:#1b2027; --sub:#5a6470; --line:#e6e2d9;
+  --accent:#1F4E79; --accent-soft:#eaf1f8; --accent-ink:#1a4064;
+  --red:#c62828; --red-soft:#fdecec; --green:#2e7d32; --green-soft:#eaf5eb;
+  --shadow:0 1px 2px rgba(20,30,45,.05), 0 6px 20px rgba(20,30,45,.06);
+}
+:root:not([data-theme="light"]){ @media (prefers-color-scheme: dark){
+  --ground:#12161c; --card:#1a2029; --ink:#eef1f5; --sub:#9aa6b4; --line:#2b333f;
+  --accent:#6ea8dc; --accent-soft:#1c2937; --accent-ink:#a9cdf0;
+  --red:#ff6b6b; --red-soft:#33201f; --green:#7bc47f; --green-soft:#1e2a20;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+}}
+:root[data-theme="dark"]{
+  --ground:#12161c; --card:#1a2029; --ink:#eef1f5; --sub:#9aa6b4; --line:#2b333f;
+  --accent:#6ea8dc; --accent-soft:#1c2937; --accent-ink:#a9cdf0;
+  --red:#ff6b6b; --red-soft:#33201f; --green:#7bc47f; --green-soft:#1e2a20;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+}
+*{ box-sizing:border-box; }
+body{ margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  line-height:1.6; -webkit-font-smoothing:antialiased; }
+.wrap{ max-width:460px; margin:0 auto; padding:0 16px 40px; }
+a{ color:inherit; }
+
+/* header */
+.hero{ text-align:center; padding:26px 8px 8px; }
+.eyebrow{ font-size:12px; letter-spacing:3px; color:var(--sub); font-weight:500; }
+.hero h1{ font-family:"Zen Kaku Gothic New",sans-serif; font-weight:900; color:var(--accent);
+  font-size:29px; line-height:1.2; margin:6px 0 2px; text-wrap:balance; }
+.hero .en{ font-size:13px; color:var(--sub); letter-spacing:.5px; }
+.hero .lead{ font-size:13.5px; color:var(--sub); margin-top:10px; }
+
+/* sticky emergency bar */
+.sos{ position:sticky; top:8px; z-index:10; display:flex; gap:8px; margin:14px 0 4px; }
+.sos a{ flex:1; text-decoration:none; border-radius:12px; padding:11px 8px; text-align:center;
+  font-weight:700; font-size:14px; box-shadow:var(--shadow); }
+.sos .call{ background:var(--accent); color:#fff; }
+.sos .call small{ display:block; font-weight:500; font-size:10.5px; opacity:.85; letter-spacing:.5px; }
+.sos .em{ background:var(--red); color:#fff; flex:0 0 34%; }
+.sos .em small{ display:block; font-weight:500; font-size:10.5px; opacity:.9; }
+
+/* section card */
+.card{ background:var(--card); border:1px solid var(--line); border-radius:16px;
+  padding:16px 16px 14px; margin-top:14px; box-shadow:var(--shadow); }
+.card > h2{ font-family:"Zen Kaku Gothic New",sans-serif; font-weight:700; font-size:17px;
+  margin:0 0 3px; display:flex; align-items:center; gap:9px; }
+.card > h2 .ic{ font-size:20px; line-height:1; }
+.card > .sec-en{ font-size:11px; color:var(--sub); letter-spacing:.6px; margin:0 0 10px 30px;
+  text-transform:uppercase; }
+
+/* place row */
+.place{ padding:11px 0; border-top:1px dashed var(--line); }
+.place:first-of-type{ border-top:none; padding-top:2px; }
+.place .nm{ font-weight:700; font-size:14.5px; }
+.place .meta{ font-size:12.5px; color:var(--sub); margin-top:2px; }
+.actions{ display:flex; flex-wrap:wrap; gap:8px; margin-top:9px; }
+.btn{ text-decoration:none; font-size:12.5px; font-weight:700; padding:8px 12px; border-radius:999px;
+  display:inline-flex; align-items:center; gap:6px; border:1px solid transparent; }
+.btn.map{ background:var(--accent-soft); color:var(--accent-ink); }
+.btn.tel{ background:var(--green-soft); color:var(--green); }
+.btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
+/* transit table */
+.tbl{ width:100%; border-collapse:collapse; font-size:13px; }
+.tbl td{ padding:8px 4px; border-top:1px solid var(--line); vertical-align:top; }
+.tbl tr:first-child td{ border-top:none; }
+.tbl .dest{ font-weight:700; width:38%; }
+.tbl .dest small{ display:block; font-weight:400; color:var(--sub); font-size:10.5px; letter-spacing:.3px; }
+.tbl .route{ color:var(--sub); }
+.tbl .fig{ display:block; color:var(--ink); font-weight:700; margin-top:2px;
+  font-variant-numeric:tabular-nums; }
+.note{ font-size:11.5px; color:var(--sub); margin:10px 2px 0; }
+
+/* shopping grid */
+.grid{ display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-top:4px; }
+.mini{ background:var(--accent-soft); border-radius:12px; padding:10px 11px; text-decoration:none; }
+.mini .t{ font-weight:700; font-size:13px; color:var(--accent-ink); }
+.mini .d{ font-size:11px; color:var(--sub); margin-top:2px; }
+
+.foot{ text-align:center; font-size:11px; color:var(--sub); margin-top:22px; line-height:1.8; }
+.foot b{ color:var(--ink); }
+.langs{ text-align:center; font-size:11px; color:var(--sub); margin-top:14px; }
+@media (prefers-reduced-motion:no-preference){ .btn,.sos a{ transition:transform .08s ease; } }
+.btn:active,.sos a:active{ transform:scale(.97); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">N O M A D　松 戸 宿</div>
+    <h1>テイクファイブ<br>エリアガイド</h1>
+    <div class="en">Area &amp; Travel Guide ・ 松户周边指南 ・ 마츠도 안내</div>
+    <p class="lead">交通・病院・避難・買い物などをまとめました。各所は「マップで開く」から。<br>Everything you need around the stay — tap “Open in Maps”.</p>
+  </div>
+
+  <div class="sos">
+    <a class="call" href="tel:+818059893393">☎️ ホストに電話 (24h)<small>Support ・ +81 80-5989-3393</small></a>
+    <a class="em" href="tel:119">🚑 119<small>火災・救急 / 110</small></a>
+  </div>
+
+  <!-- 交通 -->
+  <div class="card">
+    <h2><span class="ic">🚉</span>主要スポットへの行き方</h2>
+    <p class="sec-en">Getting Around — from Matsudo Sta.</p>
+    <table class="tbl">
+      <tr><td class="dest">上野<small>Ueno</small></td><td class="route">常磐線快速（直通）<span class="fig">約19分 / IC ¥341</span></td></tr>
+      <tr><td class="dest">東京駅<small>Tokyo</small></td><td class="route">上野東京ライン（直通）<span class="fig">約28分 / IC ¥440</span></td></tr>
+      <tr><td class="dest">秋葉原<small>Akihabara</small></td><td class="route">日暮里で乗換（または北千住→日比谷線）<span class="fig">約28分 / IC ¥341</span></td></tr>
+      <tr><td class="dest">大手町・表参道<small>Otemachi</small></td><td class="route">千代田線 直通（乗換なし）<span class="fig">約35分 / IC 約¥490</span></td></tr>
+      <tr><td class="dest">浅草<small>Asakusa</small></td><td class="route">北千住で乗換<span class="fig">約30分 / IC 約¥400</span></td></tr>
+      <tr><td class="dest">🐭 ディズニー<small>Maihama</small></td><td class="route">新松戸→武蔵野線→京葉線→舞浜<span class="fig">約50分 / IC ¥620</span></td></tr>
+      <tr><td class="dest">✈️ 成田空港<small>Narita</small></td><td class="route">京成線→新鎌ヶ谷→新京成線<span class="fig">約54分 / ¥1,131</span></td></tr>
+      <tr><td class="dest">✈️ 羽田空港<small>Haneda</small></td><td class="route">京急→品川→上野東京ライン<span class="fig">約76分 / ¥855</span></td></tr>
+    </table>
+    <p class="note">※IC運賃・所要時間の目安（大手町・浅草は概算）。正確な経路はGoogleマップの乗換案内で。 / Approx.; use Google Maps for exact routes.</p>
+    <div class="actions">
+      <a class="btn map" href="https://www.google.com/maps/dir/?api=1&destination=松戸駅" target="_blank" rel="noopener">🗺️ 松戸駅をマップで / Matsudo Sta.</a>
+    </div>
+  </div>
+
+  <!-- 緊急・医療 -->
+  <div class="card">
+    <h2><span class="ic">🏥</span>緊急・医療</h2>
+    <p class="sec-en">Emergency &amp; Medical</p>
+    <div class="place">
+      <div class="nm">火災・救急・事故 / Fire・Ambulance</div>
+      <div class="meta">生命に関わる緊急は迷わず119（警察は110）。 / Call 119 for fire &amp; ambulance, 110 for police.</div>
+      <div class="actions">
+        <a class="btn tel" href="tel:119">📞 119</a>
+        <a class="btn tel" href="tel:110">📞 110</a>
+      </div>
+    </div>
+    <div class="place">
+      <div class="nm">松戸市立総合医療センター（救命救急センター）</div>
+      <div class="meta">松戸市千駄堀993-1 / 24h ER ・ Matsudo City General Hospital</div>
+      <div class="actions">
+        <a class="btn tel" href="tel:0477122511">📞 047-712-2511</a>
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=松戸市立総合医療センター" target="_blank" rel="noopener">🗺️ マップで開く / Open in Maps</a>
+      </div>
+    </div>
+    <div class="place">
+      <div class="nm">軽い症状 / Minor illness</div>
+      <div class="meta">近隣クリニックをご案内します。お電話かメッセージでご連絡ください。 / Contact us and we’ll guide you to a nearby clinic.</div>
+      <div class="actions">
+        <a class="btn tel" href="tel:+818059893393">📞 ホストに連絡 / Contact host</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 避難場所 -->
+  <div class="card">
+    <h2><span class="ic">🚨</span>避難場所</h2>
+    <p class="sec-en">Evacuation Site</p>
+    <div class="place">
+      <div class="nm">松戸中央公園（指定緊急避難場所）</div>
+      <div class="meta">松戸市岩瀬487-1。地震・火災など大きな災害時の避難先。まず建物の外へ、その後こちらへ。 / Designated evacuation site — head outside first, then here.</div>
+      <div class="actions">
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=松戸中央公園 松戸市岩瀬487-1" target="_blank" rel="noopener">🗺️ マップで開く / Open in Maps</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 駐車場・ランドリー -->
+  <div class="card">
+    <h2><span class="ic">🅿️</span>駐車場・コインランドリー</h2>
+    <p class="sec-en">Parking &amp; Laundry</p>
+    <div class="place">
+      <div class="nm">近隣コインパーキング</div>
+      <div class="meta">専用駐車場はありません。周辺のコインパーキングをご利用ください（空き状況は各自ご確認を）。 / No dedicated parking — use nearby coin parking.</div>
+      <div class="actions">
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=コインパーキング 松戸市松戸1115" target="_blank" rel="noopener">🗺️ 近くの駐車場を探す / Find parking</a>
+      </div>
+    </div>
+    <div class="place">
+      <div class="nm">コインランドリー ピエロ 松戸店（乾燥機あり）</div>
+      <div class="meta">松戸市松戸1074。お部屋の洗濯機は乾燥機なし。乾燥はこちらが便利です。 / Has dryers (the room’s washer has none).</div>
+      <div class="actions">
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=コインランドリーピエロ 松戸店 松戸市松戸1074" target="_blank" rel="noopener">🗺️ マップで開く / Open in Maps</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 買い物 -->
+  <div class="card">
+    <h2><span class="ic">🛒</span>買い物・便利</h2>
+    <p class="sec-en">Shopping &amp; Essentials</p>
+    <div class="grid">
+      <a class="mini" href="https://www.google.com/maps/search/?api=1&query=ローソン 松戸市松戸1115" target="_blank" rel="noopener"><div class="t">ローソン</div><div class="d">徒歩約30秒・24h / Konbini</div></a>
+      <a class="mini" href="https://www.google.com/maps/search/?api=1&query=イトーヨーカドー松戸店" target="_blank" rel="noopener"><div class="t">イトーヨーカドー</div><div class="d">食品・日用品・ATM / Super</div></a>
+      <a class="mini" href="https://www.google.com/maps/search/?api=1&query=マツモトキヨシ 松戸駅" target="_blank" rel="noopener"><div class="t">ドラッグストア</div><div class="d">マツモトキヨシ等 / Pharmacy</div></a>
+      <a class="mini" href="https://www.google.com/maps/search/?api=1&query=セブン銀行ATM 松戸駅" target="_blank" rel="noopener"><div class="t">外貨対応ATM</div><div class="d">セブン銀行 / ATM (foreign cards)</div></a>
+    </div>
+  </div>
+
+  <!-- おすすめ -->
+  <div class="card">
+    <h2><span class="ic">🍜</span>おすすめ・散策</h2>
+    <p class="sec-en">Host’s Picks</p>
+    <div class="place">
+      <div class="nm">戸定邸（とじょうてい）</div>
+      <div class="meta">旧徳川昭武邸。美しい庭園と博物館。 / A former Tokugawa residence with a beautiful garden.</div>
+      <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=戸定邸" target="_blank" rel="noopener">🗺️ マップで開く / Maps</a></div>
+    </div>
+    <div class="place">
+      <div class="nm">松戸神社</div>
+      <div class="meta">地元で親しまれる由緒ある神社。 / A historic local shrine.</div>
+      <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=松戸神社" target="_blank" rel="noopener">🗺️ マップで開く / Maps</a></div>
+    </div>
+    <div class="place">
+      <div class="nm">グルメ・カフェ</div>
+      <div class="meta">松戸駅周辺にラーメン・居酒屋・カフェが多数。 / Lots of ramen, izakaya &amp; cafés around the station.</div>
+      <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=レストラン 松戸駅" target="_blank" rel="noopener">🗺️ 飲食店を探す / Find food</a></div>
+    </div>
+  </div>
+
+  <p class="langs">日本語 ・ English ・ 中文 ・ 한국어 — tap “Open in Maps” on any place.</p>
+
+  <div class="foot">
+    NOMAD松戸宿 テイクファイブ<br>
+    住宅宿泊管理業者　水野 進矢　国土交通大臣(01)第Ｆ06176号<br>
+    24h Support：<b>+81 80-5989-3393</b><br>
+    <span style="font-size:10px">※鍵・入室方法など宿泊者専用の情報は室内のご案内をご確認ください。</span>
+  </div>
+
+</div>
+</body>
+</html>
