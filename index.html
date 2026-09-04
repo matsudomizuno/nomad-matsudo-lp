@@ -2256,6 +2256,24 @@ img { max-width: 100%; display: block; }
     });
   }
 
+  /* Beds24 予約ページのチェックイン日を明示 -----------------------------
+     Beds24 は直前に検索した日付をセッションに保持するため、再訪時に古い
+     （すでに過去になった）日付が初期表示される。リンク側で毎回「本日＋7日」
+     を渡して上書きする。 */
+  (function () {
+    var d = new Date();
+    d.setDate(d.getDate() + 7);
+    var iso = d.getFullYear() + '-' +
+      ('0' + (d.getMonth() + 1)).slice(-2) + '-' +
+      ('0' + d.getDate()).slice(-2);
+    var links = document.querySelectorAll('a[href*="beds24.com/booking2.php"]');
+    Array.prototype.forEach.call(links, function (a) {
+      var href = a.getAttribute('href');
+      if (href.indexOf('checkin=') !== -1) return;
+      a.setAttribute('href', href + '&checkin=' + iso + '&numnight=1');
+    });
+  })();
+
 })();
 </script>
 </body>
