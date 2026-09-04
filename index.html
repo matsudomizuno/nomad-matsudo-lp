@@ -476,15 +476,20 @@ img { max-width: 100%; display: block; }
 .comfort-point span:not(.comfort-icon) { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
 .comfort-point small { display: block; font-size: 12px; color: var(--text-light); }
 .transit-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 16px;
+  /* 7枚を4+3の中央揃えに。6列グリッドだと羽田空港だけが2行目左端に孤立し、
+     7列に詰めるとカードが約97pxまで痩せて路線名が折り返す */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
   margin-bottom: 40px;
 }
 .transit-card {
+  flex: 0 1 calc(25% - 9px);
+  min-width: 148px;
   background: var(--bg);
   border-radius: var(--radius-lg);
-  padding: 24px 16px;
+  padding: 20px 12px;
   text-align: center;
   border: 1px solid rgba(0,0,0,0.04);
   transition: box-shadow var(--transition), transform var(--transition);
@@ -511,7 +516,7 @@ img { max-width: 100%; display: block; }
 }
 .transit-time .t-num {
   font-family: 'Montserrat', var(--sans);
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
@@ -1217,7 +1222,7 @@ img { max-width: 100%; display: block; }
    ======================================== */
 @media (max-width: 1024px) {
   .concept-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .transit-grid { grid-template-columns: repeat(3, 1fr); }
+  .transit-card { flex-basis: calc(33.333% - 8px); }
   .rooms-grid { grid-template-columns: repeat(2, 1fr); }
   .reviews-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -1269,7 +1274,7 @@ img { max-width: 100%; display: block; }
   /* Why Matsudo */
   .why-block { padding: 24px 20px; margin-bottom: 32px; }
   .why-block h3 { font-size: 17px; }
-  .transit-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .transit-card { flex-basis: calc(50% - 6px); min-width: 0; }
   .transit-time .t-num { font-size: 26px; }
   .comfort-points { grid-template-columns: 1fr; gap: 12px; }
 
@@ -1527,7 +1532,7 @@ img { max-width: 100%; display: block; }
             </div>
             <div class="comfort-point">
               <span class="comfort-icon">&#128197;</span>
-              <span data-ja="1〜14泊の短期〜中期滞在に対応" data-en="1–14 night short to mid-term stays" data-zh="可入住1至14晚" data-ko="1~14박 단기~중기 체류 대응">1〜14泊の短期〜中期滞在に対応</span>
+              <span data-ja="1〜14泊の短期・中期滞在" data-en="Stays of 1–14 nights" data-zh="可入住1至14晚" data-ko="1~14박 단기·중기 체류">1〜14泊の短期・中期滞在</span>
               <small data-ja="出張からバカンスまで" data-en="Business trips to vacations" data-zh="出差到度假均可" data-ko="출장부터 바캉스까지">出張からバカンスまで</small>
             </div>
           </div>
@@ -1544,11 +1549,11 @@ img { max-width: 100%; display: block; }
           <h2 class="section-title" data-ja="全6室。松戸駅 徒歩8分。" data-en="6 rooms. 8 min from Matsudo Station." data-zh="全6间。距松户站步行8分钟。" data-ko="전 6실. 마쓰도역 도보 8분.">全6室。松戸駅 徒歩8分。</h2>
         </div>
         <p class="section-lead" style="text-align:center; max-width:640px; margin:0 auto 40px; font-size:15px; color:var(--text-light); line-height:1.8;"
-          data-ja="おふたりでのご旅行には1DKタイプ、3〜8名のファミリー・グループには1LDKタイプ（M001）がおすすめです。長期のご滞在には、割引をご用意しているM056をお選びください。"
-          data-en="For two guests, our 1DK rooms are ideal; for families and groups of 3–8, the 1LDK (M001) is the best fit. For longer stays, M056 offers a long-stay discount."
-          data-zh="两人出行推荐1DK房型；3〜8人的家庭·团体请选择1LDK房型（M001）。长期居住可选择提供长住优惠的M056。"
-          data-ko="두 분의 여행에는 1DK 타입, 3~8명의 가족·그룹에는 1LDK 타입(M001)을 추천합니다. 장기 체류에는 할인이 적용되는 M056을 준비했습니다.">
-          おふたりでのご旅行には1DKタイプ、3〜8名のファミリー・グループには1LDKタイプ（M001）がおすすめです。長期のご滞在には、割引をご用意しているM056をお選びください。
+          data-ja="おふたりでのご旅行には1DK、3名以上のご家族・グループには最大8名の1LDKがゆとりがあります。連泊のご予定があれば、長期割引のあるお部屋がお得です。"
+          data-en="For two, a 1DK is ideal. For families and groups of three or more, the 1LDK sleeps up to 8 with room to spare. Staying several nights? One of our rooms comes with a long-stay discount."
+          data-zh="两人出行推荐1DK；3人以上的家庭·团体，最多可住8人的1LDK更为宽敞。若计划连住，可选择提供长住优惠的房型。"
+          data-ko="두 분의 여행에는 1DK, 3명 이상의 가족·그룹에는 최대 8명까지 묵을 수 있는 1LDK가 여유롭습니다. 여러 날 머무신다면 장기 할인이 있는 객실이 좋습니다.">
+          おふたりでのご旅行には1DK、3名以上のご家族・グループには最大8名の1LDKがゆとりがあります。連泊のご予定があれば、長期割引のあるお部屋がお得です。
         </p>
         <!-- 最安値バナー -->
         <div class="best-price-banner fade-in">
@@ -1560,11 +1565,11 @@ img { max-width: 100%; display: block; }
                 data-zh="官网最低价"
                 data-ko="공식 사이트 최저가">公式サイト最安値</span>
               <p class="best-price-reason"
-                data-ja="OTA手数料（10〜20%）がかからない分、価格に還元。同じ部屋・同じ日程で、ご予約内容により最大 ¥2,000 程度お得になります。"
-                data-en="No OTA fees (10–20%) — savings passed to you. Save up to about ¥2,000 on the same room and dates, depending on your booking."
-                data-zh="无需OTA手续费（10〜20%），节省的费用还给您。同一房间·同一日期，根据预订内容最多可节省约 ¥2,000。"
-                data-ko="OTA 수수료(10~20%)가 없는 만큼 가격에 환원. 같은 방·같은 일정에서 예약 내용에 따라 최대 약 ¥2,000 절약.">
-                OTA手数料（10〜20%）がかからない分、価格に還元。同じ部屋・同じ日程で、ご予約内容により最大 ¥2,000 程度お得になります。
+                data-ja="OTA手数料（10〜20%）がかからない分、価格に還元。同じ部屋・同じ日程で、1泊あたり最大2,000円程度お得になります。"
+                data-en="No OTA fees (10–20%) — savings passed to you. Save up to about ¥2,000 per night on the same room and dates."
+                data-zh="无需OTA手续费（10〜20%），节省的费用还给您。同一房间·同一日期，每晚最多可节省约 ¥2,000。"
+                data-ko="OTA 수수료(10~20%)가 없는 만큼 가격에 환원. 같은 방·같은 일정에서 1박당 최대 약 ¥2,000 절약.">
+                OTA手数料（10〜20%）がかからない分、価格に還元。同じ部屋・同じ日程で、1泊あたり最大2,000円程度お得になります。
               </p>
             </div>
             <div class="best-price-perk">
