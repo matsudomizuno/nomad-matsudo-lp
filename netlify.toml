@@ -22,3 +22,17 @@
   for = "/js/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# SNS計測用の短縮パス。bioには /x /ig と書けば済むので、
+# プロフィール上の表示を汚さずにUTMを付けられる。
+[[redirects]]
+  from = "/x"
+  to = "/?utm_source=x&utm_medium=social&utm_campaign=bio"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/ig"
+  to = "/?utm_source=instagram&utm_medium=social&utm_campaign=bio"
+  status = 302
+  force = true
