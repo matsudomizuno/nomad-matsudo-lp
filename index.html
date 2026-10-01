@@ -390,6 +390,22 @@ img { max-width: 100%; display: block; }
 .concept-lead-body p { font-size: 15px; line-height: 2; color: var(--text); margin-bottom: 16px; }
 .concept-lead-body p:last-child { margin-bottom: 0; }
 .concept-lead-body strong { color: var(--ink); font-weight: 600; }
+/* --- ゲストブックの引用（手書きの一次情報） --- */
+.gb-quote { max-width: 680px; margin: 0 auto 44px; padding: 28px 30px 24px;
+  background: var(--white); border-left: 3px solid var(--warm);
+  border-radius: 0 var(--radius) var(--radius) 0; }
+.gb-quote p { font-family: var(--serif); font-size: 17px; line-height: 2; color: var(--ink);
+  margin: 0 0 14px; text-align: left; }
+.gb-quote .gb-src { text-align: left; font-size: 12.5px; line-height: 1.7; color: var(--text-light); letter-spacing: .02em; }
+.gb-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  max-width: 900px; margin: 0 auto; }
+.gb-item { background: var(--bg-alt); border-radius: var(--radius); padding: 22px 24px; text-align: left; }
+.gb-item p { font-family: var(--serif); font-size: 15.5px; line-height: 1.95; color: var(--ink); margin: 0 0 10px; }
+.gb-item .gb-src { font-size: 12px; color: var(--text-light); }
+.gb-head { max-width: 900px; margin: 56px auto 18px; text-align: center; }
+.gb-head h3 { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--ink); margin: 0 0 6px; }
+.gb-head p { font-size: 13px; color: var(--text-light); margin: 0; }
+@media (max-width: 760px) { .gb-list { grid-template-columns: 1fr; } .gb-quote { padding: 22px 20px 20px; } .gb-quote p { font-size: 15.5px; } }
 .concept-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1437,6 +1453,19 @@ img { max-width: 100%; display: block; }
               2016年の開業以来、私たちはその構造を現代に引き継いでいます。観光資源ではなく「暮らしの構造」で旅人を受け止める。それがNOMAD松戸宿の考え方です。
             </p>
           </div>
+          <blockquote class="gb-quote fade-in">
+            <p data-ja="2週間滞在しましたが、自分の家にいるかのようにリラックスして過ごせました。全て必要な物がそろっていて、何も買わずに不自由なくエンジョイできました。"
+               data-en="I stayed for two weeks and relaxed as if I were in my own home. Everything I needed was already there — I never had to buy a thing."
+               data-zh="我住了两周，放松得就像在自己家里一样。需要的东西一应俱全，什么都不用买就能尽情享受。"
+               data-ko="2주간 머물렀는데 마치 내 집에 있는 것처럼 편안하게 지냈습니다. 필요한 것이 모두 갖춰져 있어 아무것도 사지 않아도 불편함이 없었습니다.">
+              2週間滞在しましたが、自分の家にいるかのようにリラックスして過ごせました。全て必要な物がそろっていて、何も買わずに不自由なくエンジョイできました。
+            </p>
+            <div class="gb-src"
+               data-ja="客室に置いているゲストブックより／2週間ご滞在・2025年3月"
+               data-en="From the guestbook in one of our rooms — a two-week stay, March 2025"
+               data-zh="摘自客房内的留言本／入住两周・2025年3月"
+               data-ko="객실에 비치된 방명록에서／2주간 숙박・2025년 3월">客室に置いているゲストブックより／2週間ご滞在・2025年3月</div>
+          </blockquote>
         </div>
         <div class="concept-grid">
           <div class="concept-card fade-in">
@@ -1886,7 +1915,7 @@ img { max-width: 100%; display: block; }
 
         </div>
 
-        <div class="reviews-cta fade-in" style="text-align:center; margin-top:48px;">
+        <div class="reviews-note fade-in" style="text-align:center; margin-top:28px;">
           <p style="font-size:15px; color:var(--text-light); margin-bottom:20px;"
              data-ja="10年間・これまで運営してきた全物件・全プラットフォーム（Airbnb・Expedia・Hotels.com・Agoda・Booking.com）の累計で5,230件以上のレビュー。"
              data-en="5,230+ reviews in total, cumulative across every property we have operated over 10 years and all platforms (Airbnb, Expedia, Hotels.com, Agoda, Booking.com)."
@@ -1894,6 +1923,48 @@ img { max-width: 100%; display: block; }
              data-ko="10년간 운영해 온 전 숙소·전 플랫폼（Airbnb·Expedia·Hotels.com·Agoda·Booking.com）누계로 5,230건 이상의 리뷰.">
             10年間・これまで運営してきた全物件・全プラットフォーム（Airbnb・Expedia・Hotels.com・Agoda・Booking.com）の累計で5,230件以上のレビュー。
           </p>
+        </div>
+
+        <!-- 客室のゲストブック（手書き・2024年5月〜2026年9月の181枚から） -->
+        <div class="gb-head fade-in">
+          <h3 data-ja="客室のゲストブックから" data-en="From the guestbooks in our rooms" data-zh="摘自客房内的留言本" data-ko="객실의 방명록에서">客室のゲストブックから</h3>
+          <p data-ja="評価のために書かれたものではない、手書きの言葉です。"
+             data-en="Handwritten words, never written for a rating."
+             data-zh="这些是手写的话语，并非为了评分而写。"
+             data-ko="평가를 위해 쓰인 것이 아닌, 손으로 적은 말들입니다.">評価のために書かれたものではない、手書きの言葉です。</p>
+        </div>
+        <div class="gb-list">
+          <div class="gb-item fade-in">
+            <p data-ja="とってもいごこちがよく、きれいで、一生住んでいたいくらいです。"
+               data-en="So comfortable and so clean — I could happily live here for the rest of my life."
+               data-zh="住得非常舒适，干净整洁，简直想住一辈子。"
+               data-ko="너무나 편안하고 깨끗해서 평생 살고 싶을 정도입니다.">とってもいごこちがよく、きれいで、一生住んでいたいくらいです。</p>
+            <div class="gb-src" data-ja="ご家族でのご滞在・2024年10月" data-en="A family stay, October 2024" data-zh="家庭入住・2024年10月" data-ko="가족 숙박・2024년 10월">ご家族でのご滞在・2024年10月</div>
+          </div>
+          <div class="gb-item fade-in">
+            <p data-ja="泊めていただきありがとうございました。この滞在は、まるで我が家にいるようでした。また日本に来るときに泊まりたいです。"
+               data-en="Thank you very much for hosting me! I enjoyed my stay as it felt like home. I hope to stay here again when I visit Japan."
+               data-zh="感谢您的接待！这次入住感觉就像回到家一样。下次来日本还想住这里。"
+               data-ko="묵게 해 주셔서 감사합니다. 마치 내 집처럼 느껴지는 숙박이었습니다. 다음에 일본에 올 때도 묵고 싶습니다.">Thank you very much for hosting me! I enjoyed my stay as it felt like home. I hope to stay here again when I visit Japan.</p>
+            <div class="gb-src" data-ja="ロサンゼルスより・2025年10月" data-en="From Los Angeles, October 2025" data-zh="来自洛杉矶・2025年10月" data-ko="로스앤젤레스에서・2025년 10월">From Los Angeles, October 2025</div>
+          </div>
+          <div class="gb-item fade-in">
+            <p data-ja="駅からも近く、部屋も清潔で大変過ごしやすかったです。日本の家に帰ってきたみたいな安心感がありました。"
+               data-en="Close to the station, and the room was clean and easy to settle into. It felt as reassuring as coming home to a Japanese house."
+               data-zh="离车站近，房间干净，住起来非常舒服。有一种回到日本家中的安心感。"
+               data-ko="역에서 가깝고 방도 청결해 매우 지내기 좋았습니다. 일본의 집에 돌아온 듯한 안도감이 있었습니다.">駅からも近く、部屋も清潔で大変過ごしやすかったです。日本の家に帰ってきたみたいな安心感がありました。</p>
+            <div class="gb-src" data-ja="海外からのお客様・2026年9月" data-en="A guest from overseas, September 2026" data-zh="来自海外的客人・2026年9月" data-ko="해외에서 오신 손님・2026년 9월">海外からのお客様・2026年9月</div>
+          </div>
+          <div class="gb-item fade-in">
+            <p data-ja="イギリスから1週間滞在しました。松戸の人たちは本当に感じがよく、地元のご家族と夕食に行く機会にも恵まれました。"
+               data-en="I stayed here for 1 week from England. The people in Matsudo are a delight, and I was lucky enough to meet a local family to go out to dinner with."
+               data-zh="我从英国来，住了一周。松户的人们非常友善，我还有幸和当地的一家人一起共进晚餐。"
+               data-ko="영국에서 와서 일주일간 머물렀습니다. 마쓰도 사람들은 정말 좋은 분들이었고, 현지 가족과 저녁 식사를 할 기회도 있었습니다.">I stayed here for 1 week from England. The people in Matsudo are a delight, and I was lucky enough to meet a local family to go out to dinner with.</p>
+            <div class="gb-src" data-ja="イギリスより・1週間ご滞在・2026年5月" data-en="From England, a one-week stay, May 2026" data-zh="来自英国・入住一周・2026年5月" data-ko="영국에서・일주일 숙박・2026년 5월">From England, a one-week stay, May 2026</div>
+          </div>
+        </div>
+
+        <div class="reviews-cta fade-in" style="text-align:center; margin-top:48px;">
           <a href="https://beds24.com/booking2.php?ownerid=129386" target="_blank" rel="noopener"
              class="btn btn-primary"
              data-ja="空室を確認する" data-en="Check Availability"
