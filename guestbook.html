@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ゲストブック | NOMAD 松戸宿</title>
+  <meta name="description" content="NOMAD松戸宿の客室に置いたノートに、ゲストが手で書き残した言葉。評価のために書かれたものではない声を、清掃のたびに記録しています。">
+  <meta property="og:title" content="ゲストブック | NOMAD 松戸宿">
+  <meta property="og:description" content="客室のノートに、ゲストが手で書き残した言葉。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nomadmatsudo.com/guestbook.html">
+  <meta property="og:image" content="https://nomadmatsudo.com/img/ogp.jpg">
+  <link rel="canonical" href="https://nomadmatsudo.com/guestbook.html">
+  <meta name="robots" content="index,follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#1a1a1a; --warm:#c8813a; --warm-dark:#a8692c; --warm-light:#f5ead8;
+  --bg:#faf8f4; --bg-alt:#f0ece5; --text:#333; --text-light:#6f6a63; --line:#e5dfd4; --white:#fff;
+  --green:#3d7a4f; --green-soft:#e8f2ea;
+  --serif:'Noto Serif JP',serif; --sans:'Noto Sans JP',sans-serif; --display:'Cormorant Garamond',serif;
+  --radius:8px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+
+/* header */
+.hd{position:sticky;top:0;z-index:20;background:rgba(250,248,244,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hd .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.hd .logo img{height:30px;display:block}
+.langs{display:flex;gap:4px}
+.langs button{font:500 12px var(--sans);border:1px solid var(--line);background:var(--white);color:var(--text-light);
+  padding:5px 9px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--ink);border-color:var(--ink);color:var(--white)}
+
+/* hero */
+.hero{text-align:center;padding:56px 0 28px}
+.eyebrow{font:italic 400 18px var(--display);color:var(--warm);letter-spacing:.04em}
+.hero h1{font:600 clamp(26px,5vw,36px)/1.4 var(--serif);color:var(--ink);margin:6px 0 14px;text-wrap:balance}
+.hero .lead{max-width:600px;margin:0 auto;font-size:15px;color:var(--text-light);text-wrap:pretty}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:680px;margin:32px auto 0}
+.stat{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:14px 6px 12px}
+.stat b{display:block;font:600 26px/1.2 var(--serif);color:var(--ink);font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:var(--text-light);line-height:1.5;display:block}
+
+/* home callout */
+.home{max-width:680px;margin:40px auto 0;padding:28px 30px;background:var(--white);border-left:3px solid var(--warm);border-radius:0 var(--radius) var(--radius) 0}
+.home p{margin:0;font:400 16px/2 var(--serif);color:var(--ink)}
+.home .words{margin-top:12px;font-size:13.5px;color:var(--text-light);line-height:2}
+
+/* section */
+.sec{padding:56px 0 8px}
+.sec h2{font:600 22px/1.5 var(--serif);color:var(--ink);text-align:center;margin:0 0 6px}
+.sec .sub{text-align:center;font-size:13.5px;color:var(--text-light);margin:0 0 24px}
+
+/* filter */
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:26px}
+.chips button{font:500 13px var(--sans);border:1px solid var(--line);background:var(--white);color:var(--text);
+  padding:7px 14px;border-radius:999px;cursor:pointer}
+.chips button.on{background:var(--warm);border-color:var(--warm);color:var(--white)}
+.chips button .n{opacity:.7;margin-left:4px;font-size:11.5px}
+
+/* entries */
+.list{columns:2;column-gap:18px}
+.card{break-inside:avoid;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px 16px;margin:0 0 18px;display:inline-block;width:100%}
+.card.feat{background:var(--warm-light);border-color:#ead9bf}
+.card .q{font:400 15.5px/1.95 var(--serif);color:var(--ink);margin:0;overflow-wrap:anywhere}
+.card .tr{font-size:13px;line-height:1.85;color:var(--text-light);margin:10px 0 0;padding-top:10px;border-top:1px dashed var(--line)}
+.card .tr:before{content:attr(data-label);display:inline-block;font-size:10.5px;letter-spacing:.06em;border:1px solid var(--line);
+  border-radius:4px;padding:0 5px;margin-right:6px;line-height:1.6;vertical-align:1px}
+.card .meta{font-size:12px;color:var(--text-light);margin-top:12px;display:flex;flex-wrap:wrap;gap:4px 10px}
+.more{display:block;margin:6px auto 0;font:500 14px var(--sans);border:1px solid var(--ink);background:transparent;color:var(--ink);
+  padding:10px 26px;border-radius:999px;cursor:pointer}
+
+/* between / gifts / fixes */
+.notes{display:grid;gap:12px;max-width:720px;margin:0 auto}
+.note{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;font-size:14.5px}
+.gifts{display:grid;grid-template-columns:minmax(0,260px) 1fr;gap:22px;max-width:760px;margin:0 auto;align-items:start}
+.gifts img{width:100%;height:auto;border-radius:var(--radius);display:block}
+.gifts ul{list-style:none;margin:0;padding:0}
+.gifts li{padding:12px 0;border-top:1px solid var(--line);font-size:14.5px}
+.gifts li:first-child{border-top:none;padding-top:0}
+.gifts li small{display:block;color:var(--text-light);font-size:12px}
+.fixes{max-width:760px;margin:0 auto;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.fix{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:14px 20px;border-top:1px solid var(--line);font-size:14px}
+.fix:first-child{border-top:none}
+.fix .s{color:var(--text)}
+.fix .d{color:var(--green);font-weight:500}
+.fix .d:before{content:"→ ";color:var(--text-light);font-weight:400}
+.fix.wip .d{color:var(--warm-dark)}
+.fixhead{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:10px 20px;background:var(--bg-alt);font-size:12px;color:var(--text-light);letter-spacing:.04em}
+
+/* cta / foot */
+.cta{text-align:center;padding:64px 0 40px}
+.btn{display:inline-block;text-decoration:none;font:500 15px var(--sans);padding:14px 36px;border-radius:999px;background:var(--warm);color:var(--white)}
+.btn:hover{background:var(--warm-dark)}
+.back{display:block;margin-top:18px;font-size:14px;color:var(--text-light)}
+.foot{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color:var(--text-light);text-align:center;line-height:1.9}
+
+@media (max-width:720px){
+  .list{columns:1}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .gifts{grid-template-columns:1fr}
+  .gifts img{max-width:240px;margin:0 auto}
+  .fix,.fixhead{grid-template-columns:1fr;gap:2px}
+  .fixhead{display:none}
+  .home{padding:22px 20px}
+  .langs button{padding:5px 7px}
+}
+</style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQQF6RS5KN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TQQF6RS5KN');
+  </script>
+</head>
+<body>
+<header class="hd">
+  <div class="wrap">
+    <a href="/" class="logo"><img src="img/nomadlogo.png" alt="NOMAD 松戸宿" height="30"></a>
+    <div class="langs" role="group" aria-label="Language">
+      <button data-lang="ja" class="on">JA</button><button data-lang="en">EN</button><button data-lang="zh">中文</button><button data-lang="ko">한국어</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">Guestbook</div>
+    <h1 data-i18n="title">客室のゲストブック</h1>
+    <p class="lead" data-i18n="lead">各部屋に置いたノートに、ゲストが手で書き残した言葉です。評価のために書かれたものではありません。清掃のたびにページを撮影し、毎月ここに書き足しています。</p>
+    <div class="stats">
+      <div class="stat"><b id="sEntries">–</b><span data-i18n="sEntries">掲載している言葉</span></div>
+      <div class="stat"><b id="sLangs">–</b><span data-i18n="sLangs">書かれていた言語</span></div>
+      <div class="stat"><b id="sGifts">–</b><span data-i18n="sGifts">置いていかれた贈り物</span></div>
+      <div class="stat"><b id="sFixes">–</b><span data-i18n="sFixes">言われて直したこと</span></div>
+    </div>
+  </section>
+
+  <div class="home">
+    <p id="homeLine"></p>
+    <div class="words" id="homeWords"></div>
+  </div>
+
+  <section class="sec" id="words">
+    <h2 data-i18n="wordsH">ゲストの言葉</h2>
+    <p class="sub" data-i18n="wordsSub">名前は載せていません。本文は抜粋のみで、言い換えはしていません（…は省略）。</p>
+    <div class="chips" id="chips"></div>
+    <div class="list" id="list"></div>
+    <button class="more" id="more" hidden></button>
+  </section>
+
+  <section class="sec">
+    <h2 data-i18n="betweenH">ゲストからゲストへ</h2>
+    <p class="sub" data-i18n="betweenSub">ノートは、次に泊まる人への伝言板にもなっています。</p>
+    <div class="notes" id="between"></div>
+  </section>
+
+  <section class="sec">
+    <h2 data-i18n="giftsH">置いていかれた贈り物</h2>
+    <p class="sub" data-i18n="giftsSub">お礼の言葉と一緒に、ときどき贈り物が残されています。</p>
+    <div class="gifts">
+      <img id="giftPhoto" alt="" loading="lazy" width="676" height="1200">
+      <ul id="gifts"></ul>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 data-i18n="fixesH">言われたこと、直したこと</h2>
+    <p class="sub" data-i18n="fixesSub">ノートには「ここが惜しい」という声も書かれます。それも記録して、直しています。</p>
+    <div class="fixes">
+      <div class="fixhead"><span data-i18n="fixSaid">ゲストブックに書かれたこと</span><span data-i18n="fixDone">対応</span></div>
+      <div id="fixes"></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <a class="btn" href="https://beds24.com/booking2.php?ownerid=129386" target="_blank" rel="noopener" data-i18n="cta">空室を確認する</a>
+    <a class="back" href="/#reviews" data-i18n="back">← NOMAD 松戸宿のトップへ</a>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span data-i18n="foot">更新日</span> <span id="updated"></span> ・ NOMAD 松戸宿 テイクファイブ（千葉県松戸市）
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var UI = {
+    ja: { title:'客室のゲストブック', lead:'各部屋に置いたノートに、ゲストが手で書き残した言葉です。評価のために書かれたものではありません。清掃のたびにページを撮影し、毎月ここに書き足しています。',
+      sEntries:'掲載している言葉', sLangs:'書かれていた言語', sGifts:'置いていかれた贈り物', sFixes:'言われて直したこと',
+      homeLine:function(n){ return '互いを知らないゲストが、国も年齢も滞在日数も違うまま、<b>「家」</b>という言葉に<b>' + n + '回</b>たどり着いています。'; },
+      wordsH:'ゲストの言葉', wordsSub:'名前は載せていません。本文は抜粋のみで、言い換えはしていません（…は省略）。',
+      all:'すべて', home:'家のよう', matsudo:'松戸の街', comfort:'快適さ', host:'もてなし', purpose:'旅の目的', again:'また来たい',
+      more:function(n){ return 'もっと読む（あと' + n + '件）'; }, tr:'訳',
+      betweenH:'ゲストからゲストへ', betweenSub:'ノートは、次に泊まる人への伝言板にもなっています。',
+      giftsH:'置いていかれた贈り物', giftsSub:'お礼の言葉と一緒に、ときどき贈り物が残されています。', giftAlt:'ゲストが置いていったスイスのお菓子',
+      fixesH:'言われたこと、直したこと', fixesSub:'ノートには「ここが惜しい」という声も書かれます。それも記録して、直しています。', fixSaid:'ゲストブックに書かれたこと', fixDone:'対応',
+      cta:'空室を確認する', back:'← NOMAD 松戸宿のトップへ', foot:'更新日', ym:function(y,m){ return y + '年' + m + '月'; }, undated:'日付なし' },
+    en: { title:'The Guestbooks in Our Rooms', lead:'Words guests wrote by hand in the notebook we leave in each room — never written for a rating. We photograph the pages at every cleaning and add them here each month.',
+      sEntries:'entries shown', sLangs:'languages written in', sGifts:'gifts left behind', sFixes:'things we fixed',
+      homeLine:function(n){ return 'Guests who never met — different countries, ages and lengths of stay — arrived at the same word, <b>"home"</b>, <b>' + n + ' times</b>.'; },
+      wordsH:'In their words', wordsSub:'No names are shown. Quotes are excerpts, never reworded (… marks a cut).',
+      all:'All', home:'Like home', matsudo:'Matsudo', comfort:'Comfort', host:'Hospitality', purpose:'Why they came', again:'Coming back',
+      more:function(n){ return 'Read more (' + n + ' left)'; }, tr:'Translation',
+      betweenH:'From guest to guest', betweenSub:'The notebook has become a message board for the next guests.',
+      giftsH:'Gifts left behind', giftsSub:'Along with thank-you notes, guests sometimes leave a gift.', giftAlt:'Swiss sweets left by a guest',
+      fixesH:'What you told us, what we fixed', fixesSub:'Guests also write what could be better. We record that too — and fix it.', fixSaid:'Written in the guestbook', fixDone:'What we did',
+      cta:'Check Availability', back:'← Back to NOMAD Matsudo', foot:'Updated', ym:function(y,m){ return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][m-1] + ' ' + y; }, undated:'Undated' },
+    zh: { title:'客房留言本', lead:'这些是住客在每间客房的留言本上亲手写下的话语，并非为了评分而写。我们每次清扫时拍下页面，每月在此更新。',
+      sEntries:'刊登的留言', sLangs:'书写的语言', sGifts:'留下的礼物', sFixes:'据此改进的事项',
+      homeLine:function(n){ return '互不相识的住客，来自不同国家、年龄与入住天数，却<b>' + n + '次</b>写下了同一个词——<b>“家”</b>。'; },
+      wordsH:'住客的话', wordsSub:'不刊登姓名。仅为摘录，未作改写（…为省略）。',
+      all:'全部', home:'像家一样', matsudo:'松户街区', comfort:'舒适', host:'待客', purpose:'旅行目的', again:'还想再来',
+      more:function(n){ return '查看更多（还有' + n + '条）'; }, tr:'英译',
+      betweenH:'住客写给住客', betweenSub:'留言本也成了留给下一位住客的留言板。',
+      giftsH:'留下的礼物', giftsSub:'除了感谢的话语，住客有时还会留下礼物。', giftAlt:'住客留下的瑞士点心',
+      fixesH:'您说的，我们改了', fixesSub:'留言本里也有“这里可以更好”的意见。我们同样记录并改进。', fixSaid:'留言本中写到的', fixDone:'我们的处理',
+      cta:'查看空房', back:'← 返回 NOMAD 松户宿首页', foot:'更新日期', ym:function(y,m){ return y + '年' + m + '月'; }, undated:'日期不详' },
+    ko: { title:'객실 방명록', lead:'각 객실에 둔 노트에 손님들이 손으로 남긴 말입니다. 평가를 위해 쓴 글이 아닙니다. 청소할 때마다 페이지를 촬영해 매달 이곳에 더하고 있습니다.',
+      sEntries:'게재한 글', sLangs:'쓰인 언어', sGifts:'남겨진 선물', sFixes:'듣고 고친 것',
+      homeLine:function(n){ return '서로 모르는 손님들이 국적도 나이도 숙박 일수도 다른 채 <b>"집"</b>이라는 말에 <b>' + n + '번</b> 도달했습니다.'; },
+      wordsH:'손님들의 말', wordsSub:'이름은 싣지 않습니다. 발췌만 하고 바꿔 쓰지 않았습니다（…는 생략）.',
+      all:'전체', home:'집 같은', matsudo:'마쓰도 거리', comfort:'쾌적함', host:'환대', purpose:'여행 목적', again:'다시 오고 싶다',
+      more:function(n){ return '더 보기（' + n + '건 남음）'; }, tr:'영어 번역',
+      betweenH:'손님이 손님에게', betweenSub:'노트는 다음 손님에게 남기는 게시판이 되기도 합니다.',
+      giftsH:'남겨진 선물', giftsSub:'감사 인사와 함께 가끔 선물이 남겨져 있습니다.', giftAlt:'손님이 남긴 스위스 과자',
+      fixesH:'들은 것, 고친 것', fixesSub:'노트에는 "이 점이 아쉽다"는 목소리도 적힙니다. 그것도 기록하고 고치고 있습니다.', fixSaid:'방명록에 적힌 것', fixDone:'조치',
+      cta:'빈방 확인', back:'← NOMAD 마쓰도 숙소 홈으로', foot:'업데이트', ym:function(y,m){ return y + '년 ' + m + '월'; }, undated:'날짜 없음' }
+  };
+  var THEMES = ['all','home','matsudo','comfort','host','purpose','again'];
+  var PAGE = 12;
+  var data = null, lang = 'ja', theme = 'all', shown = PAGE;
+
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function pick(o){ if (!o) return ''; return o[lang] || (lang === 'ja' ? o.ja : o.en) || o.ja || ''; }
+  function t(k){ return UI[lang][k]; }
+  function ymText(ym){ if (!ym) return t('undated'); var p = ym.split('-'); return t('ym')(+p[0], +p[1]); }
+
+  function card(e){
+    var trText = '', trLabel = '';
+    if (e.lang !== lang) {
+      if (lang === 'ja' && e.ja) { trText = e.ja; trLabel = t('tr'); }
+      else if (lang !== 'ja' && e.lang !== 'en' && e.en) { trText = e.en; trLabel = t('tr'); }
+    }
+    var meta = [ymText(e.ym)];
+    if (e.stay) meta.push(pick(e.stay));
+    if (e.from) meta.push(pick(e.from));
+    return '<article class="card' + (e.featured ? ' feat' : '') + '">' +
+      '<p class="q" lang="' + esc(e.lang) + '">' + esc(e.text) + '</p>' +
+      (trText ? '<p class="tr" data-label="' + esc(trLabel) + '">' + esc(trText) + '</p>' : '') +
+      '<div class="meta">' + meta.map(function(m){ return '<span>' + esc(m) + '</span>'; }).join('') + '</div></article>';
+  }
+
+  function filtered(){
+    var list = data.entries.filter(function(e){ return theme === 'all' || e.themes.indexOf(theme) >= 0; });
+    // おすすめを先頭に、その中は新しい順（データの並び＝新しい順を保つ）
+    return list.filter(function(e){ return e.featured; }).concat(list.filter(function(e){ return !e.featured; }));
+  }
+
+  function renderList(){
+    var list = filtered();
+    document.getElementById('list').innerHTML = list.slice(0, shown).map(card).join('');
+    var more = document.getElementById('more');
+    var left = list.length - shown;
+    more.hidden = left <= 0;
+    if (left > 0) more.textContent = t('more')(left);
+  }
+
+  function renderChips(){
+    document.getElementById('chips').innerHTML = THEMES.map(function(k){
+      var n = k === 'all' ? data.entries.length : data.entries.filter(function(e){ return e.themes.indexOf(k) >= 0; }).length;
+      return '<button data-theme="' + k + '" class="' + (k === theme ? 'on' : '') + '" aria-pressed="' + (k === theme) + '">' + esc(t(k)) + '<span class="n">' + n + '</span></button>';
+    }).join('');
+  }
+
+  function render(){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){ var v = t(el.getAttribute('data-i18n')); if (typeof v === 'string') el.textContent = v; });
+    document.querySelectorAll('.langs button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang') === lang); });
+    if (!data) return;
+    var homes = data.entries.filter(function(e){ return e.themes.indexOf('home') >= 0; });
+    document.getElementById('sEntries').textContent = data.entries.length;
+    document.getElementById('sLangs').textContent = data.languages;
+    document.getElementById('sGifts').textContent = data.gifts.length;
+    document.getElementById('sFixes').textContent = data.fixes.filter(function(f){ return f.status === 'done'; }).length;
+    document.getElementById('homeLine').innerHTML = t('homeLine')(homes.length);
+    document.getElementById('homeWords').textContent = ['一生住んでいたいくらいです','it felt like home','在此居住，有家的感觉','自分の家のように','a second home','家に帰りたくないです〜〜'].join('　／　');
+    renderChips();
+    renderList();
+    document.getElementById('between').innerHTML = data.between_guests.map(function(b){ return '<div class="note">' + esc(pick(b)) + '</div>'; }).join('');
+    var photo = data.gifts.filter(function(g){ return g.photo; })[0];
+    var img = document.getElementById('giftPhoto');
+    if (photo) { img.src = photo.photo; img.alt = t('giftAlt'); } else { img.hidden = true; }
+    document.getElementById('gifts').innerHTML = data.gifts.map(function(g){ return '<li>' + esc(pick(g)) + '<small>' + esc(ymText(g.ym)) + '</small></li>'; }).join('');
+    document.getElementById('fixes').innerHTML = data.fixes.map(function(f){
+      return '<div class="fix' + (f.status === 'wip' ? ' wip' : '') + '"><span class="s">' + esc(pick(f.said)) + '</span><span class="d">' + esc(pick(f.done)) + '</span></div>';
+    }).join('');
+    document.getElementById('updated').textContent = data.updated;
+  }
+
+  document.querySelector('.langs').addEventListener('click', function(ev){
+    var b = ev.target.closest('button[data-lang]'); if (!b) return;
+    lang = b.getAttribute('data-lang'); history.replaceState(null, '', '#' + lang); render();
+  });
+  document.getElementById('chips').addEventListener('click', function(ev){
+    var b = ev.target.closest('button[data-theme]'); if (!b) return;
+    theme = b.getAttribute('data-theme'); shown = PAGE; renderChips(); renderList();
+  });
+  document.getElementById('more').addEventListener('click', function(){ shown += PAGE; renderList(); });
+
+  var h = (location.hash || '').slice(1);
+  if (UI[h]) lang = h;
+  render();
+  fetch('guestbook.json', { cache: 'no-cache' }).then(function(r){ return r.json(); }).then(function(d){ data = d; render(); })
+    .catch(function(){ document.getElementById('list').textContent = ''; });
+})();
+</script>
+</body>
+</html>
