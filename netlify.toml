@@ -13,6 +13,14 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# SNS投稿用の画像置き場。Business Suite の投稿画面から fetch して添付するため CORS を開ける。
+# 検索には載せない。
+[[headers]]
+  for = "/sns/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    X-Robots-Tag = "noindex"
+
 [[headers]]
   for = "/css/*"
   [headers.values]
