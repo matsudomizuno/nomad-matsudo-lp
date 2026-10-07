@@ -44,3 +44,9 @@
   to = "/?utm_source=instagram&utm_medium=social&utm_campaign=bio"
   status = 302
   force = true
+
+[[redirects]]
+  from = "/fb"
+  to = "/?utm_source=facebook&utm_medium=social&utm_campaign=page"
+  status = 302
+  force = true
