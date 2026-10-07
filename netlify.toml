@@ -50,3 +50,10 @@
   to = "/?utm_source=facebook&utm_medium=social&utm_campaign=page"
   status = 302
   force = true
+
+# IGストーリーズのリンクスタンプ用（bio の /ig と分けて、ストーリーズ経由を数える）
+[[redirects]]
+  from = "/igs"
+  to = "/?utm_source=instagram&utm_medium=social&utm_campaign=story"
+  status = 302
+  force = true
