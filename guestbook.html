@@ -184,7 +184,7 @@ a{color:inherit}
   </section>
 
   <section class="cta">
-    <a class="btn" href="https://beds24.com/booking2.php?ownerid=129386" target="_blank" rel="noopener" data-i18n="cta">空室を確認する</a>
+    <a class="btn" href="https://beds24.com/booking2.php?ownerid=129386&amp;referer=lp" target="_blank" rel="noopener" data-i18n="cta">空室を確認する</a>
     <a class="back" href="/#reviews" data-i18n="back">← NOMAD 松戸宿のトップへ</a>
   </section>
 </main>
@@ -326,6 +326,20 @@ a{color:inherit}
   render();
   fetch('guestbook.json', { cache: 'no-cache' }).then(function(r){ return r.json(); }).then(function(d){ data = d; render(); })
     .catch(function(){ document.getElementById('list').textContent = ''; });
+})();
+/* トップで覚えた流入元（utm_source）を予約リンクの referer に引き継ぐ */
+(function () {
+  var src = (location.search.match(/[?&]utm_source=([^&#]*)/) || [])[1];
+  try {
+    if (src) sessionStorage.setItem('nomad_src', src);
+    else src = sessionStorage.getItem('nomad_src');
+  } catch (e) {}
+  src = (src || '').toLowerCase().replace(/[^a-z0-9_]/g, '').slice(0, 16);
+  if (!src) return;
+  var links = document.querySelectorAll('a[href*="beds24.com/booking2.php"]');
+  Array.prototype.forEach.call(links, function (a) {
+    a.setAttribute('href', a.getAttribute('href').replace(/([?&])referer=lp(?=&|$)/, '$1referer=lp-' + src));
+  });
 })();
 </script>
 </body>
