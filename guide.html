@@ -74,6 +74,9 @@ a{ color:inherit; }
   display:inline-flex; align-items:center; gap:6px; border:1px solid transparent; }
 .btn.map{ background:var(--accent-soft); color:var(--accent-ink); }
 .btn.tel{ background:var(--green-soft); color:var(--green); }
+.btn.book{ background:var(--accent); color:#fff; }
+:root[data-theme="dark"] .btn.book{ color:#12161c; }
+:root:not([data-theme="light"]){ @media (prefers-color-scheme: dark){ .btn.book{ color:#12161c; } } }
 .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
 
 /* transit table */
@@ -235,6 +238,20 @@ a{ color:inherit; }
       <div class="nm">グルメ・カフェ</div>
       <div class="meta">松戸駅周辺にラーメン・居酒屋・カフェが多数。 / Lots of ramen, izakaya &amp; cafés around the station.</div>
       <div class="actions"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=レストラン 松戸駅" target="_blank" rel="noopener">🗺️ 飲食店を探す / Find food</a></div>
+    </div>
+  </div>
+
+  <!-- 次回の予約 -->
+  <div class="card">
+    <h2><span class="ic">🏠</span>次回のご宿泊は公式サイトで</h2>
+    <p class="sec-en">Next Stay — Book Direct</p>
+    <div class="meta" style="font-size:13px;line-height:1.7">
+      公式サイトからの直接予約が最安です。全6室・1泊〜最長180泊。出張やご家族・ご友人の松戸滞在にもどうぞ。<br>
+      <span style="color:var(--sub)">Our best rate is always on our own website — 6 rooms, 1 to 180 nights.<br>官网直接预订最优惠 ・ 공식 사이트 직접 예약이 가장 저렴합니다</span>
+    </div>
+    <div class="actions">
+      <a class="btn book" href="https://beds24.com/booking2.php?ownerid=129386&amp;referer=guide" target="_blank" rel="noopener">📅 空室を確認 / Check availability</a>
+      <a class="btn map" href="https://nomadmatsudo.com/?utm_source=guide&amp;utm_medium=qr" target="_blank" rel="noopener">🛏️ 部屋を見る / See rooms</a>
     </div>
   </div>
 
