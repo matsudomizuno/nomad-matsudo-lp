@@ -28,7 +28,7 @@
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
     "name": "NOMAD 松戸宿",
-    "description": "かつて宿場町だった街、松戸に泊まる。松戸駅徒歩8分の宿。1泊から最長180泊まで対応。",
+    "description": "松戸駅徒歩8分、キッチン・洗濯機付きの1DK〜1LDK全6室の民泊（住宅宿泊事業）。1室で最大8名まで泊まれる1LDK（201号室・63㎡）があり、家族・友人グループの滞在に向く。1泊から最長180泊まで。セルフチェックイン。公式サイトからの直接予約が最安で、チェックアウトは12:00（通常11:00）。",
     "url": "https://nomadmatsudo.com",
     "address": {
       "@type": "PostalAddress",
@@ -47,14 +47,123 @@
       "@type": "AggregateOffer",
       "lowPrice": 13600,
       "priceCurrency": "JPY",
-      "availability": "https://schema.org/InStock"
+      "availability": "https://schema.org/InStock",
+      "url": "https://nomadmatsudo.com/"
     },
     "numberOfRooms": 6,
     "checkinTime": "15:00",
     "checkoutTime": "11:00",
     "sameAs": [
-      "https://x.com/nomad_matsudo",
       "https://www.instagram.com/nomadmatsudo/"
+    ],
+    "telephone": "+81-80-5989-3393",
+    "priceRange": "¥13,600〜（1泊・1室・税込総額）",
+    "amenityFeature": [
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "キッチン",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "洗濯機",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "無料Wi-Fi",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "セルフチェックイン",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "長期滞在可（最長180泊）",
+        "value": true
+      }
+    ],
+    "containsPlace": [
+      {
+        "@type": "Apartment",
+        "name": "101号室（1DK・35㎡）",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 35,
+          "unitCode": "MTK"
+        },
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "maxValue": 4
+        }
+      },
+      {
+        "@type": "Apartment",
+        "name": "201号室（1LDK・63㎡）",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 63,
+          "unitCode": "MTK"
+        },
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "maxValue": 8
+        }
+      },
+      {
+        "@type": "Apartment",
+        "name": "301号室（1DK・30㎡）",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 30,
+          "unitCode": "MTK"
+        },
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "maxValue": 5
+        }
+      },
+      {
+        "@type": "Apartment",
+        "name": "302号室（1DK・27㎡）",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 27,
+          "unitCode": "MTK"
+        },
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "maxValue": 3
+        }
+      },
+      {
+        "@type": "Apartment",
+        "name": "305号室（1DK・27㎡）",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 27,
+          "unitCode": "MTK"
+        },
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "maxValue": 4
+        }
+      },
+      {
+        "@type": "Apartment",
+        "name": "306号室（1DK・33㎡）",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 33,
+          "unitCode": "MTK"
+        },
+        "occupancy": {
+          "@type": "QuantitativeValue",
+          "maxValue": 5
+        }
+      }
     ]
   }
   </script>
@@ -1624,25 +1733,14 @@ img { max-width: 100%; display: block; }
             </div>
           </div>
         </div>
-        <!-- 2026-08 改訂：6室体制（403/M005・402/M019・405/M012 は終了につき削除）
-             文言の正：NOMAD松戸宿/OTAリスティング改善_6室体制_2026-08.md §5-2 / §6
-             Beds24 propid（1室=1プロパティ構成／2026-08-11 APIで全室確定）:
-                   M001=247506 M005=247508 M012=247509 M015=247510 M026=247511
-                   M057=247512 M019=247513 M049=247514 M056=247515
-             評価値は 2026-06 のライブ取得値。M015/M049/M056/M057 はレビュー件数が未取得のため評価のみ表示 -->
-        <!-- 2026-09-03 レイアウト改訂：カテゴリ別に分かれていた4グリッド（2+2+1+1）を
-             1つの3列グリッドに統合。カテゴリは各カードのタグへ移した。
-             従来は1枚だけのグリッドが2つあり、M056・M001が広い余白に取り残されていた
-             2026-09-03 並び順：M001（1LDK・最大8名・★4.74/232件）を先頭へ。
-             単価と評価件数が最も大きい部屋が最後尾に埋もれていたため -->
         <div class="rooms-grid">
           <div class="room-card fade-in" id="room-m001">
             <div class="room-img">
-              <img src="img/room-m001.jpg" alt="M001 室内" width="720" height="480" loading="lazy">
+              <img src="img/room-m001.jpg" alt="201号室 室内" width="720" height="480" loading="lazy">
             </div>
             <div class="room-info">
               <span class="room-type-tag" data-ja="ファミリー・グループ" data-en="Families & groups" data-zh="家庭·团体" data-ko="가족·그룹">ファミリー・グループ</span>
-              <h3>1LDK / M001</h3>
+              <h3 data-ja="201号室 / 1LDK" data-en="Room 201 / 1LDK" data-zh="201室 / 1LDK" data-ko="201호 / 1LDK">201号室 / 1LDK</h3>
               <div class="room-rating">&#9733; 4.74 <span>(232 <span data-ja="件" data-en="reviews" data-zh="条" data-ko="건">件</span>)</span></div>
               <p data-ja="最大8名 / 広々1LDK・グループ向け" data-en="Up to 8 / Spacious 1LDK for groups" data-zh="最多8人 / 宽敞1LDK·团体首选" data-ko="최대 8명 / 넓은 1LDK·단체 추천">最大8名 / 広々1LDK・グループ向け</p>
               <a href="https://beds24.com/booking2.php?propid=247506&amp;referer=lp" target="_blank" rel="noopener" class="room-book-btn" data-ja="この部屋を予約" data-en="Book this room" data-zh="预订此房" data-ko="이 방 예약">この部屋を予約</a>
@@ -1650,11 +1748,11 @@ img { max-width: 100%; display: block; }
           </div>
           <div class="room-card fade-in" id="room-m057">
             <div class="room-img">
-              <img src="img/room-m057.jpg" alt="M057 室内" width="720" height="480" loading="lazy">
+              <img src="img/room-m057.jpg" alt="101号室 室内" width="720" height="480" loading="lazy">
             </div>
             <div class="room-info">
               <span class="room-type-tag" data-ja="おふたりに" data-en="For couples" data-zh="情侣·两人" data-ko="두 분께">おふたりに</span>
-              <h3>1DK / M057</h3>
+              <h3 data-ja="101号室 / 1DK" data-en="Room 101 / 1DK" data-zh="101室 / 1DK" data-ko="101호 / 1DK">101号室 / 1DK</h3>
               <div class="room-rating">&#9733; 4.74</div>
               <p data-ja="ダブルベッド / 1階・階段なし / 最大4名" data-en="Double bed / Ground floor, no stairs / Up to 4" data-zh="双人床 / 一楼无楼梯 / 最多4人" data-ko="더블베드 / 1층·계단 없음 / 최대 4명">ダブルベッド / 1階・階段なし / 最大4名</p>
               <a href="https://beds24.com/booking2.php?propid=247512&amp;referer=lp" target="_blank" rel="noopener" class="room-book-btn" data-ja="この部屋を予約" data-en="Book this room" data-zh="预订此房" data-ko="이 방 예약">この部屋を予約</a>
@@ -1662,24 +1760,23 @@ img { max-width: 100%; display: block; }
           </div>
           <div class="room-card fade-in" id="room-m015">
             <div class="room-img">
-              <img src="img/room-m015.jpg" alt="M015 室内" width="720" height="480" loading="lazy">
+              <img src="img/room-m015.jpg" alt="302号室 室内" width="720" height="480" loading="lazy">
             </div>
             <div class="room-info">
               <span class="room-type-tag" data-ja="おふたりに" data-en="For couples" data-zh="情侣·两人" data-ko="두 분께">おふたりに</span>
-              <h3>1DK / M015</h3>
+              <h3 data-ja="302号室 / 1DK" data-en="Room 302 / 1DK" data-zh="302室 / 1DK" data-ko="302호 / 1DK">302号室 / 1DK</h3>
               <div class="room-rating">&#9733; 4.69</div>
-              <!-- 302は2026/9/1にセミダブル2台→ダブル1台へ変更。変更完了後は「（2026/9/1より）」を削除し、写真も差し替える -->
               <p data-ja="ダブルベッド（2026/9/1より） / カップル向け / 最大3名" data-en="Double bed (from 1 Sep 2026) / For couples / Up to 3" data-zh="双人床（2026年9月1日起） / 情侣首选 / 最多3人" data-ko="더블베드(2026년 9월 1일부터) / 커플 추천 / 최대 3명">ダブルベッド（2026/9/1より） / カップル向け / 最大3名</p>
               <a href="https://beds24.com/booking2.php?propid=247510&amp;referer=lp" target="_blank" rel="noopener" class="room-book-btn" data-ja="この部屋を予約" data-en="Book this room" data-zh="预订此房" data-ko="이 방 예약">この部屋を予約</a>
             </div>
           </div>
           <div class="room-card fade-in" id="room-m026">
             <div class="room-img">
-              <img src="img/room-m026.jpg" alt="M026 室内" width="720" height="480" loading="lazy">
+              <img src="img/room-m026.jpg" alt="306号室 室内" width="720" height="480" loading="lazy">
             </div>
             <div class="room-info">
               <span class="room-type-tag" data-ja="カップル・ファミリー" data-en="Couples & families" data-zh="情侣·家庭" data-ko="커플·가족">カップル・ファミリー</span>
-              <h3>1DK / M026</h3>
+              <h3 data-ja="306号室 / 1DK" data-en="Room 306 / 1DK" data-zh="306室 / 1DK" data-ko="306호 / 1DK">306号室 / 1DK</h3>
               <div class="room-rating">&#9733; 4.66 <span>(181 <span data-ja="件" data-en="reviews" data-zh="条" data-ko="건">件</span>)</span></div>
               <p data-ja="青基調で広め / カップル・ファミリー / 最大5名" data-en="Bright blue, roomier 1DK / Couples &amp; families / Up to 5" data-zh="蓝调宽敞 / 情侣·家庭 / 最多5人" data-ko="블루 톤·넉넉 / 커플·가족 / 최대 5명">青基調で広め / カップル・ファミリー / 最大5名</p>
               <a href="https://beds24.com/booking2.php?propid=247511&amp;referer=lp" target="_blank" rel="noopener" class="room-book-btn" data-ja="この部屋を予約" data-en="Book this room" data-zh="预订此房" data-ko="이 방 예약">この部屋を予約</a>
@@ -1687,11 +1784,11 @@ img { max-width: 100%; display: block; }
           </div>
           <div class="room-card fade-in" id="room-m049">
             <div class="room-img">
-              <img src="img/room-m049.jpg" alt="M049 室内" width="720" height="480" loading="lazy">
+              <img src="img/room-m049.jpg" alt="305号室 室内" width="720" height="480" loading="lazy">
             </div>
             <div class="room-info">
               <span class="room-type-tag" data-ja="カップル・ファミリー" data-en="Couples & families" data-zh="情侣·家庭" data-ko="커플·가족">カップル・ファミリー</span>
-              <h3>1DK / M049</h3>
+              <h3 data-ja="305号室 / 1DK" data-en="Room 305 / 1DK" data-zh="305室 / 1DK" data-ko="305호 / 1DK">305号室 / 1DK</h3>
               <div class="room-rating">&#9733; 4.70</div>
               <p data-ja="落ち着いた淡色 / カップル・ファミリー / 最大4名" data-en="Calm, soft tones / Couples &amp; families / Up to 4" data-zh="柔和沉静 / 情侣·家庭 / 最多4人" data-ko="은은하고 차분 / 커플·가족 / 최대 4명">落ち着いた淡色 / カップル・ファミリー / 最大4名</p>
               <a href="https://beds24.com/booking2.php?propid=247514&amp;referer=lp" target="_blank" rel="noopener" class="room-book-btn" data-ja="この部屋を予約" data-en="Book this room" data-zh="预订此房" data-ko="이 방 예약">この部屋を予約</a>
@@ -1699,11 +1796,11 @@ img { max-width: 100%; display: block; }
           </div>
           <div class="room-card fade-in" id="room-m056">
             <div class="room-img">
-              <img src="img/room-m056.jpg" alt="M056 室内" width="720" height="480" loading="lazy">
+              <img src="img/room-m056.jpg" alt="301号室 室内" width="720" height="480" loading="lazy">
             </div>
             <div class="room-info">
               <span class="room-type-tag" data-ja="長期滞在・割引あり" data-en="Long stay · discount" data-zh="长住优惠" data-ko="장기 체류·할인">長期滞在・割引あり</span>
-              <h3>1DK / M056</h3>
+              <h3 data-ja="301号室 / 1DK" data-en="Room 301 / 1DK" data-zh="301室 / 1DK" data-ko="301호 / 1DK">301号室 / 1DK</h3>
               <div class="room-rating">&#9733; 4.65</div>
               <p data-ja="長期割引あり / 仕事スペース / 最大5名" data-en="Long-stay discount / Work space / Up to 5" data-zh="长住优惠 / 办公空间 / 最多5人" data-ko="장기 할인 / 업무 공간 / 최대 5명">長期割引あり / 仕事スペース / 最大5名</p>
               <a href="https://beds24.com/booking2.php?propid=247515&amp;referer=lp" target="_blank" rel="noopener" class="room-book-btn" data-ja="この部屋を予約" data-en="Book this room" data-zh="预订此房" data-ko="이 방 예약">この部屋を予約</a>
