@@ -1,7 +1,7 @@
 # NOMAD松戸宿（NOMAD Matsudo）
 
 > 千葉県松戸市、JR・京成 松戸駅（東口）から徒歩8分の民泊（住宅宿泊事業法の届出住宅）。キッチン・洗濯機付きの1DK〜1LDKを1室まるごと使える。1室で最大8名まで泊まれる1LDK（201号室）があり、家族・友人グループ、出張、長期滞在（公式サイトは最長180泊）に向く。公式サイト（Beds24の予約ページ）からの直接予約が最安。
-> A licensed vacation rental 8 minutes' walk from Matsudo Station (JR / Keisei), Chiba, Japan — about 30 minutes from Tokyo Station. Whole 1DK–1LDK apartments with a kitchen and washing machine; Room 201 sleeps up to 8. Booking directly on our website gives the best price.
+> A licensed vacation rental 8 minutes' walk from Matsudo Station (JR / Keisei), Chiba, Japan — about 30 minutes from Tokyo Station. Whole 1DK–1LDK apartments with a kitchen and washing machine; Room 201 sleeps up to 8. Booking directly on our website gives the best price. Stays of 28+ nights are offered under a fixed-term rental contract (inquiry form).
 
 情報は2026年11月時点。料金・空室は予約ページの表示が正。
 
@@ -11,14 +11,15 @@
 - 最寄り：JR常磐線・京成松戸線 松戸駅 東口 徒歩8分
 - 運営：株式会社MATSUDO／住宅宿泊管理業者：水野 進矢（国土交通大臣(01)第F06176号）
 - チェックイン 15:00〜（24時間セルフチェックイン）／チェックアウト 11:00（公式サイトからの予約は12:00）
-- 宿泊日数：1泊〜最長180泊（公式サイト）。7泊以上・28泊以上は長期割引が予約ページで自動適用
+- 宿泊日数：27泊までは民泊として公式サイトの予約ページで即予約（7泊以上は長期割引が自動適用）。28泊以上は定期借家契約でご案内（お問い合わせフォームから相談・法人の請求書払い可）
 - 料金の目安：1泊・1名・清掃費とサービス費込みの総額 ¥13,600〜（日付・人数で変動）
 - 追加人数：2歳以上は人数に含める。201号室は4名まで同額・5人目から1名1泊¥3,300、ほかの部屋は2人目から1名1泊¥3,300
 - 全室：キッチン（コンロ・冷蔵庫・電子レンジ・電気ケトル・調理器具・食器）、洗濯機（乾燥機なし）、Wi-Fi、エアコン・暖房、ドライヤー、タオル、シャンプー。全室禁煙・ペット不可
 - エレベーターなし（2階・3階は階段のみ）。専用駐車場なし（近隣にコインパーキング）
-- キャンセル（公式サイト予約）：チェックイン5日前まで無料、4日前〜前日50%、当日100%。28泊以上は30日前まで無料
+- キャンセル（公式サイト予約・27泊まで）：チェックイン5日前まで無料、4日前〜前日50%、当日100%。28泊以上の定期借家契約は契約書の定めによる
 - 予約サイトでのゲスト評価：★4.6〜4.7（部屋により異なる）
 - 英語でのメッセージ対応可
+- 法人：領収書・適格請求書を発行可（株式会社MATSUDO／登録番号 T4040001108025）
 
 ## 部屋（公式サイトの予約ページ）
 
@@ -40,11 +41,12 @@
 ## 目的別ガイド
 
 - [家族・グループ（4〜8名）で泊まる](https://nomadmatsudo.com/group.html)
-- [長期滞在・出張で泊まる](https://nomadmatsudo.com/long-stay.html)
+- [長期滞在・出張・法人（28泊以上は定期借家契約）](https://nomadmatsudo.com/long-stay.html)
 - [成田・羽田空港と東京からのアクセス](https://nomadmatsudo.com/airport-access.html)
 
 ## その他
 
 - [公式サイト（トップ・全室一覧）](https://nomadmatsudo.com/)
 - [特定商取引法に基づく表記・キャンセルポリシー](https://nomadmatsudo.com/legal.html)
-- お問い合わせ：nomad@ma-tsu-do.com
+- お問い合わせフォーム（宿泊・長期滞在／法人・民泊運営の相談）：https://docs.google.com/forms/d/e/1FAIpQLSf_LXsvyJbqNTjfu-Arsjxme8gPe3IXpZXdTK-E4wd7sfaeAg/viewform
+- メール：nomad@ma-tsu-do.com
